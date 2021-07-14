@@ -24,6 +24,8 @@ function setup() {
 
 function draw() {
   background(bg); 
+  edges = createEdgeSprites();
+  astronaut.bounceOff(edges);
 
   if (keyDown("UP_ARROW")){
   astronaut.addAnimation("brushing", brush);
@@ -35,15 +37,40 @@ function draw() {
   }
 
   if (keyDown("DOWN_ARROW")){
-   //FILL THE CODE
+  astronaut.addAnimation("gyming", gym);
+  astronaut.changeAnimation("gyming");
+  astronaut.y = 350;
+  astronaut.velocityX = 0;
+  astronaut.velocityY = 0;
+
   }
   
   if (keyDown("RIGHT_ARROW")){
-    //FILL THE CODE
+  astronaut.addAnimation("bathing", bath);
+  astronaut.changeAnimation("bathing");
+  astronaut.x = 300;
+  astronaut.velocityX = 0;
+  astronaut.velocityY = 0;
+
     }
     if (keyDown("LEFT_ARROW")){
-      //FILL THE CODE
+  astronaut.addAnimation("eating", eat);
+  astronaut.changeAnimation("eating");
+  astronaut.x = 150;
+  astronaut.y = 350;
+  astronaut.velocityX = 0.5;
+  astronaut.velocityY = 0.5;
+
     }
+  
+   if (keyDown("M")){
+  astronaut.addAnimation("moving", move);
+  astronaut.changeAnimation("moving");
+  astronaut.velocityX = 1;
+  astronaut.velocityY = 1;
+
+    }
+  
     
     drawSprites();
 }
